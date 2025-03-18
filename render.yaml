@@ -5,4 +5,3 @@ services:
     buildCommand: "npm install && npm run build"
     startCommand: "npx serve -s build"
     plan: free
-    region: oregon
