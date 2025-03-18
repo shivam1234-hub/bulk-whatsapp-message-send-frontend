@@ -36,3 +36,81 @@
     transform: rotate(360deg);
   }
 }
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.qr-code {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  margin: 10px 0;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #218838;
+}
+
+.send-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.status-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.status-table th, .status-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.status-table th {
+  background: #f8f8f8;
+}
