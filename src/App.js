@@ -6,6 +6,8 @@ import { Editor } from 'primereact/editor';
 
 import "./App.css";
 
+const BASE_BACKEND_URL = "https://bulk-whatsapp-message-send-backend.onrender.com/";
+
 const App = () => {
   const [qrCode, setQrCode] = useState("");
   const [file, setFile] = useState(null);
@@ -69,7 +71,7 @@ const App = () => {
   // Initialize WhatsApp session
   const initializeSession = async (currentUserId) => {
     try {
-      await fetch("http://localhost:5000/init-session", {
+      await fetch(BASE_BACKEND_URL + "init-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: currentUserId }),
@@ -84,7 +86,7 @@ const App = () => {
   const startPollingQR = (currentUserId) => {
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(`http://localhost:5000/qr/${currentUserId}`);
+        const response = await fetch(`${BASE_BACKEND_URL}qr/${currentUserId}`);
         const data = await response.json();
 
         if (data.status === "authenticated") {
@@ -115,7 +117,7 @@ const App = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch(`http://localhost:5000/upload/${userId}`, {
+      const response = await fetch(`${BASE_BACKEND_URL}/upload/${userId}`, {
         method: "POST",
         body: formData,
       });
@@ -134,7 +136,7 @@ const App = () => {
     if (!message.trim()) return toast.error("Please enter a message!");
 
     try {
-      const response = await fetch(`http://localhost:5000/send/${userId}`, {
+      const response = await fetch(`${BASE_BACKEND_URL}/send/${userId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contacts, message: htmlToFormat(message) }),
